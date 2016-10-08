@@ -12,4 +12,9 @@ class Group extends Model
     {
         return $this->belongsTo('App\AppUser', 'user_id', 'id');
     }
+    
+    public function groupMedia()
+    {
+        return $this->hasMany('App\GroupMedia', 'group_id', 'id');
+    }
 }

@@ -6,8 +6,10 @@
             <name>webyardin</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>directMedia</word>
             <word>endif</word>
             <word>foreach</word>
+            <word>groupMedia</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

@@ -13,17 +13,18 @@
             <li class="{{ $activeMenu === 'users' ? 'active-link' : '' }}">
                 <a href="{{ route('users') }}"><i class="fa fa-users "></i>Users  </a>
             </li>
-            <li>
+            
+            <li class="{{ $activeMenu === 'groups' ? 'active-link' : '' }}">
                 <a href="{{ route('groups') }}"><i class="fa fa-life-ring"></i>Groups  </a>
             </li>
 
 
-            <li>
-                <a href="#"><i class="fa fa-qrcode"></i>Group Media</a>
+            <li class="{{ $activeMenu === 'groupMedia' ? 'active-link' : '' }}">
+                <a href="{{ route('group-media') }}"><i class="fa fa-qrcode"></i>Group Media</a>
             </li>
             
-            <li>
-                <a href="#"><i class="fa fa-file"></i>Direct Media</a>
+            <li class="{{ $activeMenu === 'directMedia' ? 'active-link' : '' }}">
+                <a href="{{route('direct-media')}}"><i class="fa fa-file"></i>Direct Media</a>
             </li>
             
             <li>

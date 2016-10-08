@@ -23,5 +23,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::get('/users', 'AdminController@users')->name('users');
     Route::get('/groups', 'AdminController@groups')->name('groups');
-    Route::get('/media', 'AdminController@media')->name('media');
+    Route::get('/group-media', 'AdminController@groupMedia')->name('group-media');
+    Route::delete('/delete-group-media/{id}/{fileName}/{fileType}', 'AdminController@deleteGroupMedia')->name('delete-group-media');
+    Route::get('/direct-media', 'AdminController@directMedia')->name('direct-media');
+    Route::get('/delete-direct-media/{id}', 'AdminController@deleteDirectMedia')->name('delete-direct-media');
 });
