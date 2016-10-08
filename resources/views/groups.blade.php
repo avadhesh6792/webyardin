@@ -62,7 +62,7 @@
                                 <td>{{ count(json_decode($group->members_id)) }}</td>
                                 <td>{{ $group->chat_type }}</td>
                                 <td>
-                                    <a href="#" class="label label-info"> Members</a>
+<!--                                    <a href="#" class="label label-info"> Members</a>-->
                                     <a href="#" class="label label-danger">Delete</a>
                                 </td>
                             </tr>

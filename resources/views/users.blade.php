@@ -62,7 +62,7 @@
                                 <td>{{ $user->college }}</td>
                                 <td>{{ $user->online_status ? 'Online' : 'Offline' }}</td>
                                 <td>
-                                    <a href="#" class="label label-primary">View</a>
+                                    <!-- <a href="#" class="label label-primary">View</a> -->
                                     <a href="#" class="label label-danger">Delete</a>
                                     <a href="#" class="label label-warning">Block</a>
                                 </td>

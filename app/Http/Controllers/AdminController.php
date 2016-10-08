@@ -47,4 +47,8 @@ class AdminController extends Controller
         $bind['pageTitle'] = 'groups';
         return view('groups', $bind);
      }
+     
+     public function media(){
+         
+     }
 }

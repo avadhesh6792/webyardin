@@ -23,4 +23,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'AdminController@index')->name('dashboard');
     Route::get('/users', 'AdminController@users')->name('users');
     Route::get('/groups', 'AdminController@groups')->name('groups');
+    Route::get('/media', 'AdminController@media')->name('media');
 });
