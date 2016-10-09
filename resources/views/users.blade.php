@@ -56,8 +56,8 @@
 
                             @foreach($users as $key=>$user)
                             <tr>
-                                <td>{{ $key + 1 }}</td>
-                                <td><img src="{{ url('/'). '/'.$user->image }}" alt="" class="thumbnail"/></td>
+                                <td>{{ $key + 1 }} </td>
+                                <td> {{ Html::image($base_url.'/yardin/'.$user->image, $user->image, array('class' => 'thumbnail', 'width' => 80, 'height'=> 80, 'title' => $user->username)) }} </td>
                                 <td>{{ $user->username }}</td>
                                 <td>{{ $user->college }}</td>
                                 <td>{{ $user->online_status ? 'Online' : 'Offline' }}</td>

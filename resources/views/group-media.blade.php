@@ -59,8 +59,18 @@
 
                             @foreach($groupMedia as $key=>$media)
                             <tr>
-                                <td>{{ $key + 1 }} {{ $media->chat_id }}</td>
-                                <td>{{ $media->message }}</td>
+                                <td>{{ $key + 1 }}</td>
+                                @if($media->type === 'image'  )
+                                <td> {{ Html::image($base_url.'/yardin/chat_pic/'.$media->message, $media->message, array('class' => 'thumbnail', 'width' => 80, 'height'=> 80, 'title' => $media->message)) }}</td>
+                                @elseif( $media->type == 'video' )
+                                <td>
+                                <video width="80" controls>
+                                    <source src= "<?php echo $base_url.'/yardin/chat_video/'.$media->message ?>" type="video/mov">
+                                    Your browser does not support HTML5 video.
+                                </video>
+                                </td>
+                                
+                                @endif
                                 <td>{{ $media->type }}</td>
                                 <td>{{ $media->group->chat_name }}</td>
                                 <td>{{ $media->group->chat_type }}</td>

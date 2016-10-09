@@ -28,6 +28,7 @@ class AdminController extends Controller {
         $bind['users'] = AppUser::get();
         $bind['activeMenu'] = 'users';
         $bind['pageTitle'] = 'Users';
+        $bind['base_url'] = $this->base_url();
         return view('users', $bind);
     }
 
@@ -45,6 +46,7 @@ class AdminController extends Controller {
         $bind['groupMedia'] = GroupMedia::whereIn('type', ['video', 'image'])->where('message', '!=', '')->get();
         $bind['activeMenu'] = 'groupMedia';
         $bind['pageTitle'] = 'Group Media';
+        $bind['base_url'] = $this->base_url();
         return view('group-media', $bind);
     }
 
@@ -84,5 +86,11 @@ class AdminController extends Controller {
         $request->session()->flash('flash_data', $bind);
         return redirect()->route('group-media');
     }
+    
+    public function base_url() {
+    return sprintf(
+            "%s://%s", isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http', $_SERVER['SERVER_NAME']
+    );
+}
 
 }
