@@ -130,9 +130,19 @@ th {
   text-align: center;
 }
 
-td img.thumbnail{
-    margin-bottom: 0;
-}
+td img.thumbnail{ margin-bottom: 0; }
+.logo { height: auto; padding: 0; }
+.navbar-nav > li > a { line-height: 35px; }
+.logo img { padding: 5px 0; }
+body{ background: url('../images/Background.png'); }
+.login-page .panel.panel-default { opacity: 0.65; margin-top: 16%; border-radius: 28px;}
+.login-page { height: 583px; }
+.login-page .panel-heading { border-bottom: 0 none; text-align: center; background-color: transparent;}
+.login-btn span { background-image: url("../images/LoginButton.png"); background-size: cover; background-repeat: no-repeat; display: block; height: 35px; width: 120px; }
+.login-btn { background-color: transparent; border: 0 none; padding: 0;}
+.login-page input.form-control { background-color: transparent; border-color: -moz-use-text-color -moz-use-text-color #7c7c7b; border-left: 0 none; border-radius: 0; border-right: 0 none; border-top: 0 none; border-width: 0 0 2px; box-shadow: none; }
+
+
 
 /*==============================================
     MEDIA QUERIES     

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     @include('layouts.head')
-    <body>
+    <body> 
+        @if(Auth::check())
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
@@ -15,8 +16,10 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Yarding') }}
+                    <a class="navbar-brand logo" href="{{ url('/') }}">
+                        {{ Html::image(asset('images/Logo.png'),  config('app.name', 'Yarding') , array('title' => config('app.name', 'Yarding') )) }}
+                        
+                        
                     </a>
                 </div>
 
@@ -58,3 +61,4 @@
                 </div>
             </div>
         </nav>
+        @endif
