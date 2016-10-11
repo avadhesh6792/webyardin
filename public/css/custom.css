@@ -127,44 +127,54 @@ body {
     color:#fff;
 }
 th {
-  text-align: center;
+    text-align: center;
 }
 
 td img.thumbnail{ margin-bottom: 0; }
 .logo { height: auto; padding: 0; }
 .navbar-nav > li > a { line-height: 35px; }
 .logo img { padding: 5px 0; }
-body{ background: url('../images/Background.png'); }
+body.guest-user{ background: url('../images/Background.png'); }
 .login-page .panel.panel-default { opacity: 0.65; margin-top: 16%; border-radius: 28px;}
 .login-page { height: 583px; }
 .login-page .panel-heading { border-bottom: 0 none; text-align: center; background-color: transparent;}
 .login-btn span { background-image: url("../images/LoginButton.png"); background-size: cover; background-repeat: no-repeat; display: block; height: 35px; width: 120px; }
 .login-btn { background-color: transparent; border: 0 none; padding: 0;}
 .login-page input.form-control { background-color: transparent; border-color: -moz-use-text-color -moz-use-text-color #7c7c7b; border-left: 0 none; border-radius: 0; border-right: 0 none; border-top: 0 none; border-width: 0 0 2px; box-shadow: none; }
+.login-page .btn-link { float: right; }
+.left-sidebar li{ background-position: 12px 18px; background-repeat: no-repeat; padding-left: 30px; }
+.users-icon { background-image: url("../images/UsersIcon.png"); }
+.groups-icon{ background-image: url("../images/GroupIcon.png"); }
+.group-media-icon{ background-image: url("../images/GroupMediaIcon.png"); }
+.direct-media-icon{ background-image: url("../images/DirectMedia.png"); }
+.global-message-icon{ background-image: url("../images/GlobalMessage.png"); }
+.sidebar-collapse .nav.left-sidebar > li > a:hover, .sidebar-collapse .nav.left-sidebar > li > a:focus { background: transparent none repeat scroll 0 0; }
+.nav.left-sidebar li a { padding-left: 24px; }
+.nav.left-sidebar li a i { color: rgb(21, 171, 109); float: right; font-size: 18px; margin-top: 6px; }
 
 
 
-/*==============================================
-    MEDIA QUERIES     
-    =============================================*/
+    /*==============================================
+        MEDIA QUERIES     
+        =============================================*/
 
-@media(min-width:768px) {
-    #page-wrapper{
-        margin: 0 0 0 260px;
-        padding: 15px 30px;
-        min-height: 1050px;
+    @media(min-width:768px) {
+        #page-wrapper{
+            margin: 0 0 0 260px;
+            padding: 15px 30px;
+            min-height: 1050px;
+
+        }
+
+
+        .navbar-side {
+            z-index: 1;
+            position: absolute;
+            width: 260px;
+
+        }
+
 
     }
-
-
-    .navbar-side {
-        z-index: 1;
-        position: absolute;
-        width: 260px;
-
-    }
-
-
-}
 
 

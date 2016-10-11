@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     @include('layouts.head')
-    <body> 
+    <body class="{{ Auth::check() ? 'logged-in-user' : 'guest-user' }}"> 
         @if(Auth::check())
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">

@@ -20,7 +20,8 @@ Auth::routes();
 
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('/', 'AdminController@index')->name('dashboard');
+    //Route::get('/', 'AdminController@index')->name('dashboard');
+    Route::get('/', 'AdminController@users')->name('dashboard');
     Route::get('/users', 'AdminController@users')->name('users');
     Route::get('/groups', 'AdminController@groups')->name('groups');
     Route::get('/group-media', 'AdminController@groupMedia')->name('group-media');
