@@ -55,6 +55,7 @@ class AdminController extends Controller {
         $bind['directMedia'] = DirectMedia::whereIn('type', ['video', 'image'])->where('text', '!=', '')->get();
         $bind['activeMenu'] = 'directMedia';
         $bind['pageTitle'] = 'Direct Media';
+        $bind['base_url'] = $this->base_url();
         return view('direct-media', $bind);
     }
 

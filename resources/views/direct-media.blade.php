@@ -52,7 +52,18 @@
                             @foreach($directMedia as $key=>$media)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
-                                <td>{{ $media->text }}</td>
+                                @if($media->type === 'image'  )
+                                <td> {{ Html::image($base_url.'/yardin/chat_pic/'.$media->text, $media->text, array('class' => 'thumbnail', 'width' => 80, 'height'=> 80, 'title' => $media->text)) }}</td>
+                                @elseif( $media->type == 'video' )
+                                <td>
+                                    <video width="80"  controls>
+                                    <source src= "<?php echo $base_url.'/yardin/chat_video/'.$media->text ?>" type="video/mov">
+                                    Your browser does not support HTML5 video.
+                                </video>
+                                </td>
+                                
+                                @endif
+                                
                                 <td>{{ $media->type }}</td>
                                 <td>
 <!--                                    <a href="#" class="label label-info"> Members</a>-->
