@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/wamp64/www/webyardin/resources/views/auth/login.blade.php</file>
             <file>file:/C:/wamp64/www/webyardin/resources/views/users.blade.php</file>
+            <file>file:/C:/wamp64/www/webyardin/app/Http/Controllers/Auth/LoginController.php</file>
             <file>file:/C:/wamp64/www/webyardin/public/css/custom.css</file>
             <file>file:/C:/wamp64/www/webyardin/resources/views/layouts/header.blade.php</file>
             <file>file:/C:/wamp64/www/webyardin/resources/views/group-media.blade.php</file>
