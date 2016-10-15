@@ -38,12 +38,12 @@ class AdminController extends Controller {
         $user = AppUser::find($user_id);
         if ($user->delete()) {
             if ($profile_image != ' ') {
-                $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/' . $profile_image;
+                $file_path = $_SERVER['DOCUMENT_ROOT'] . '/yardin/' . $profile_image;
                 File::Delete($file_path);
             }
 
             if ($bg_image != ' ') {
-                $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/' . $bg_image;
+                $file_path = $_SERVER['DOCUMENT_ROOT'] . '/yardin/' . $bg_image;
                 File::Delete($file_path);
             }
 
@@ -107,9 +107,9 @@ class AdminController extends Controller {
         if (GroupMedia::destroy($id)) {
 
             if ($fileType === 'image') { // image file
-                $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/chat_pic/' . $fileName;
+                $file_path = $_SERVER['DOCUMENT_ROOT'] . '/yardin/chat_pic/' . $fileName;
             } else { // video file
-                $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/chat_video/' . $fileName;
+                $file_path = $_SERVER['DOCUMENT_ROOT'] . '/yardin/chat_video/' . $fileName;
             }
 
             if (File::Delete($file_path)) {
@@ -134,13 +134,12 @@ class AdminController extends Controller {
         $directMedia = DirectMedia::find($id);
         $fileName = $directMedia->text;
         $fileType = $directMedia->type;
-         return $_SERVER['DOCUMENT_ROOT'] . 'yardin/chat_pic/' . $fileName;
         if ($directMedia->delete()) {
 
             if ($fileType === 'image') { // image file
-                $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/chat_pic/' . $fileName;
+                $file_path = $_SERVER['DOCUMENT_ROOT'] . '/yardin/chat_pic/' . $fileName;
             } else { // video file
-                $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/chat_video/' . $fileName;
+                $file_path = $_SERVER['DOCUMENT_ROOT'] . '/yardin/chat_video/' . $fileName;
             }
 
             if (File::Delete($file_path)) {
