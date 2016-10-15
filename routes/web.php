@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/groups', 'AdminController@groups')->name('groups');
     Route::get('/group-media', 'AdminController@groupMedia')->name('group-media');
     Route::delete('/delete-group-media/{id}/{fileName}/{fileType}', 'AdminController@deleteGroupMedia')->name('delete-group-media');
+    Route::delete('/delete-direct-media/{id}', 'AdminController@deleteDirectMedia')->name('delete-direct-media');
     Route::get('/direct-media', 'AdminController@directMedia')->name('direct-media');
     Route::get('/delete-direct-media/{id}', 'AdminController@deleteDirectMedia')->name('delete-direct-media');
     

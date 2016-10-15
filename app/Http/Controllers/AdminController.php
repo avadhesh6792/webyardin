@@ -37,16 +37,16 @@ class AdminController extends Controller {
         $bind = [];
         $user = AppUser::find($user_id);
         if ($user->delete()) {
-            if($profile_image != ' '){
-               $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/' . $profile_image;
+            if ($profile_image != ' ') {
+                $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/' . $profile_image;
                 File::Delete($file_path);
             }
-            
-            if($bg_image != ' '){
-               $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/' . $bg_image;
+
+            if ($bg_image != ' ') {
+                $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/' . $bg_image;
                 File::Delete($file_path);
             }
-            
+
             $bind['status'] = 1;
             $bind['message'] = 'User was deleted successfully';
         } else {
@@ -80,7 +80,7 @@ class AdminController extends Controller {
         $request->session()->flash('flash_data', $bind);
         return redirect()->route('groups');
     }
-    
+
     public function groupMedia(Request $request) {
         $bind = [];
         $bind['flash_data'] = $request->session()->get('flash_data');
@@ -91,8 +91,9 @@ class AdminController extends Controller {
         return view('group-media', $bind);
     }
 
-    public function directMedia() {
+    public function directMedia(Request $request) {
         $bind = [];
+        $bind['flash_data'] = $request->session()->get('flash_data');
         $bind['directMedia'] = DirectMedia::whereIn('type', ['video', 'image'])->where('text', '!=', '')->get();
         $bind['activeMenu'] = 'directMedia';
         $bind['pageTitle'] = 'Direct Media';
@@ -125,6 +126,35 @@ class AdminController extends Controller {
 
         $request->session()->flash('flash_data', $bind);
         return redirect()->route('group-media');
+    }
+
+    public function deleteDirectMedia($id, Request $request) {
+        $bind = [];
+        $directMedia = DirectMedia::find($id);
+        $fileName = $directMedia->text;
+        $fileType = $directMedia->type;
+        if ($directMedia->delete()) {
+
+            if ($fileType === 'image') { // image file
+                $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/chat_pic/' . $fileName;
+            } else { // video file
+                $file_path = $_SERVER['DOCUMENT_ROOT'] . 'yardin/chat_video/' . $fileName;
+            }
+
+            if (File::Delete($file_path)) {
+                $bind['status'] = 1;
+                $bind['message'] = 'Media was deleted Successfully.';
+            } else {
+                $bind['status'] = 0;
+                $bind['message'] = 'Oops! Error occur while deleting media file';
+            }
+        } else {
+            $bind['status'] = 0;
+            $bind['message'] = 'Oops! Error occur while deleting media record';
+        }
+
+        $request->session()->flash('flash_data', $bind);
+        return redirect()->route('direct-media');
     }
 
     public function base_url() {

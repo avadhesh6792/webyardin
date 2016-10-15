@@ -14,14 +14,18 @@
             <!-- /. ROW  -->
             <hr>
             <div class="row">
-                <div class="col-lg-12" style="display: none;">
-                    <div class="alert alert-info">
-                        <strong>Welcome Jhon Doe ! </strong> You Have No pending Task For Today.
+                <div class="col-lg-12">
+                    @if($flash_data['status'] === 1)
+                    <div class="alert alert-success">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                        {{ $flash_data['message'] }}
                     </div>
-
+                    @elseif($flash_data['status'] === 0)
                     <div class="alert alert-danger">
-                        <strong>Want More Icons Free ? </strong> Checkout fontawesome website and use any icon <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank">Click Here</a>.
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                        {{ $flash_data['message'] }}
                     </div>
+                    @endif
 
                 </div>
             </div>
@@ -67,7 +71,27 @@
                                 <td>{{ $media->type }}</td>
                                 <td>
 <!--                                    <a href="#" class="label label-info"> Members</a>-->
-                                    <a href="#" class="label label-danger">Delete</a>
+                                    <a href="#" data-target="#confirmDelete_{{ $media->id }}" data-toggle="modal"  class="btn btn-danger btn-xs">Delete</a>
+                                    
+                                    <div id="confirmDelete_{{ $media->id }}" class="modal fade" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog modal-sm" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title">Delete Media Permanently</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Are you Sure to Delete this media?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    {!! Form::open(['route' => ['delete-direct-media', $media->id], 'method' => 'delete']) !!}
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    {!!  Form::submit('Delete', ['class'=> 'btn btn-danger']) !!}
+                                                    {!! Form::close() !!}
+                                                </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->
                                 </td>
                             </tr>
 

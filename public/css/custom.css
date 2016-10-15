@@ -153,6 +153,7 @@ body.guest-user{ background: url('../images/Background.png'); }
 .nav.left-sidebar li a i { color: rgb(21, 171, 109); float: right; font-size: 18px; margin-top: 6px; }
 .footer { background-color: #15ab6d; text-align: center; }
 hr { border-color: #15ab6d; }
+.modal-header { background-color: #2AB27A; color: #fff }
 
 
     /*==============================================
