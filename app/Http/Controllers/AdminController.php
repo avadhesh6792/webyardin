@@ -129,10 +129,12 @@ class AdminController extends Controller {
     }
 
     public function deleteDirectMedia($id, Request $request) {
+       
         $bind = [];
         $directMedia = DirectMedia::find($id);
         $fileName = $directMedia->text;
         $fileType = $directMedia->type;
+         return $_SERVER['DOCUMENT_ROOT'] . 'yardin/chat_pic/' . $fileName;
         if ($directMedia->delete()) {
 
             if ($fileType === 'image') { // image file
