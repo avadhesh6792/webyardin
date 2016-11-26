@@ -32,6 +32,16 @@ class AdminController extends Controller {
         $bind['base_url'] = $this->base_url();
         return view('users', $bind);
     }
+    
+    public function newsCenter(Request $request){
+        $bind = [];
+        $bind['flash_data'] = $request->session()->get('flash_data');
+        //$bind['users'] = AppUser::get();
+        $bind['activeMenu'] = 'news-center';
+        $bind['pageTitle'] = 'News Center';
+        $bind['base_url'] = $this->base_url();
+        return view('news-center', $bind);
+    }
 
     public function deleteUser($user_id, $profile_image, $bg_image, Request $request) {
         $bind = [];

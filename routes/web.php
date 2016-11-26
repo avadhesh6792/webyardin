@@ -1,15 +1,15 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| This file is where you may define all of the routes that are handled
-| by your application. Just tell Laravel the URIs it should respond
-| to using a Closure or controller method. Build something great!
-|
-*/
+  |--------------------------------------------------------------------------
+  | Web Routes
+  |--------------------------------------------------------------------------
+  |
+  | This file is where you may define all of the routes that are handled
+  | by your application. Just tell Laravel the URIs it should respond
+  | to using a Closure or controller method. Build something great!
+  |
+ */
 
 Route::get('/', function () {
     //return view('login');
@@ -29,7 +29,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::delete('/delete-direct-media/{id}', 'AdminController@deleteDirectMedia')->name('delete-direct-media');
     Route::get('/direct-media', 'AdminController@directMedia')->name('direct-media');
     Route::get('/delete-direct-media/{id}', 'AdminController@deleteDirectMedia')->name('delete-direct-media');
-    
+
     Route::delete('/delete-user/{user_id}/{profile_image}/{bg_image}', 'AdminController@deleteUser')->name('delete-user');
     Route::delete('/delete-group/{group_id}', 'AdminController@deleteGroup')->name('delete-group');
+    Route::get('/news-cener', 'AdminController@newsCenter')->name('news-cener');
 });

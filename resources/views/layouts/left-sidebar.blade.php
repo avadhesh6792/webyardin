@@ -20,8 +20,8 @@
                 <a href="{{route('direct-media')}}">Direct Media<i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </li>
 
-            <li class="global-message-icon">
-                <a href="#">Global Message<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <li class="{{ $activeMenu === 'news-center' ? 'active-link' : '' }}  global-message-icon">
+                <a href="{{ route('news-cener') }}">News Center<i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </li>
         </ul>
     </div>
