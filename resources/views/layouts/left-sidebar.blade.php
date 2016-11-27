@@ -21,7 +21,7 @@
             </li>
 
             <li class="{{ $activeMenu === 'news-center' ? 'active-link' : '' }}  global-message-icon">
-                <a href="{{ route('news-cener') }}">News Center<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                <a href="{{ route('news-center') }}">News Center<i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </li>
         </ul>
     </div>

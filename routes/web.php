@@ -32,5 +32,7 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::delete('/delete-user/{user_id}/{profile_image}/{bg_image}', 'AdminController@deleteUser')->name('delete-user');
     Route::delete('/delete-group/{group_id}', 'AdminController@deleteGroup')->name('delete-group');
-    Route::get('/news-cener', 'AdminController@newsCenter')->name('news-cener');
+    
+    Route::get('/news-center', 'AdminController@newsCenter')->name('news-center');
+    Route::post('/add-news-center', 'AdminController@addNewsCenter')->name('add-news-center');
 });

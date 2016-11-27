@@ -154,6 +154,8 @@ body.guest-user{ background: url('../images/Background.png'); }
 .footer { background-color: #15ab6d; text-align: center; }
 hr { border-color: #15ab6d; }
 .modal-header { background-color: #2AB27A; color: #fff }
+.yarding-error-alert { color: red; font-size: 12px; font-weight: bold; padding: 0 10px; }
+
 
 
     /*==============================================

@@ -7,7 +7,7 @@ use App\AppUser;
 use App\Group;
 use App\GroupMedia;
 use App\DirectMedia;
-//use Request;
+use App\NewsCenter;
 use File;
 
 class AdminController extends Controller {
@@ -32,15 +32,30 @@ class AdminController extends Controller {
         $bind['base_url'] = $this->base_url();
         return view('users', $bind);
     }
-    
-    public function newsCenter(Request $request){
+
+    public function newsCenter(Request $request) {
         $bind = [];
         $bind['flash_data'] = $request->session()->get('flash_data');
-        //$bind['users'] = AppUser::get();
+        $bind['news'] = NewsCenter::get();
         $bind['activeMenu'] = 'news-center';
         $bind['pageTitle'] = 'News Center';
         $bind['base_url'] = $this->base_url();
         return view('news-center', $bind);
+    }
+
+    public function addNewsCenter(Request $request) {
+        $title = $request->get('title');
+        $description = $request->get('description');
+
+        $newNews = new NewsCenter();
+        $newNews->title = $title;
+        $newNews->description = $description;
+        $newNews->save();
+
+        $bind['status'] = 1;
+        $bind['message'] = 'News was sent successfully';
+        $request->session()->flash('flash_data', $bind);
+        return redirect()->route('news-center');
     }
 
     public function deleteUser($user_id, $profile_image, $bg_image, Request $request) {
@@ -141,7 +156,7 @@ class AdminController extends Controller {
     }
 
     public function deleteDirectMedia($id, Request $request) {
-       
+
         $bind = [];
         $directMedia = DirectMedia::find($id);
         $fileName = $directMedia->text;
